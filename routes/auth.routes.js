@@ -29,7 +29,7 @@ router.post("/register", async (req, res) => {
   try {
     const { name, email, password, bloodGroup, district, upazila, avatar } = req.body;
 
-    if (!name || !email || !password || !bloodGroup || !district || !upazila) {
+    if (!name || !email || !password || !bloodGroup || !district || !upazila || !avatar) {
       return res.status(400).json({ message: "All required fields must be provided." });
     }
 

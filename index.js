@@ -36,7 +36,7 @@ app.use(
 app.use(express.json());
 
 app.get("/", (req, res) => {
-  res.json({ message: "SaveBlood API is running" });
+  res.json({ message: "SaveBlood API is successfully running" });
 });
 
 app.use("/api/auth", authRoutes);
@@ -46,7 +46,7 @@ app.use("/api/funding", fundingRoutes);
 app.use("/api/stats", statsRoutes);
 
 app.use((req, res) => {
-  res.status(404).json({ message: "Route not found" });
+  res.status(404).json({ message: "This Route is not founded" });
 });
 
 app.use((err, req, res, next) => {
@@ -57,10 +57,10 @@ app.use((err, req, res, next) => {
 connectDB()
   .then(() => {
     app.listen(port, () => {
-      console.log(`SaveBlood server listening on port ${port}`);
+      console.log(`SaveBlood server Running on port ${port}`);
     });
   })
   .catch((err) => {
-    console.error("Failed to connect to MongoDB:", err);
+    console.error("Failed to connect to the MongoDB:", err);
     process.exit(1);
   });

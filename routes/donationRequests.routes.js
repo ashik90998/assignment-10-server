@@ -5,6 +5,7 @@ const { getDB } = require("../config/db");
 const { verifyToken, authorizeRoles } = require("../middleware/auth");
 
 const router = express.Router();
+
 function formatRequest(doc) {
   return { ...doc, _id: doc._id.toString() };
 }

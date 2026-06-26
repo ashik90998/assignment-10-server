@@ -8,7 +8,8 @@ const router = express.Router();
 const stripe = process.env.STRIPE_SECRET_KEY
   ? new Stripe(process.env.STRIPE_SECRET_KEY)
   : null;
-
+   
+  
 router.get("/", verifyToken, async (req, res) => {
   try {
     const page = parseInt(req.query.page) || 1;
@@ -25,6 +26,7 @@ router.get("/", verifyToken, async (req, res) => {
       .limit(limit)
       .toArray();
 
+        
     const totalAmount = await collection
       .aggregate([{ $group: { _id: null, total: { $sum: "$amount" } } }])
       .toArray();

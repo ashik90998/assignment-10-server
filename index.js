@@ -47,6 +47,7 @@ app.use("/api/stats", statsRoutes);
 
 app.use((req, res) => {
   res.status(404).json({ message: "This Route is not founded" });
+  
 });
 
 app.use((err, req, res, next) => {
